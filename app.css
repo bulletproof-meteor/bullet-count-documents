@@ -1,0 +1,12 @@
+#dashboard {
+  text-align: center;
+  margin-top: 150px;
+  font-size: 16px;
+  color: #444;
+}
+
+#postCount {
+  font-size: 80px;
+  font-weight: bold;
+  color: #444
+}
