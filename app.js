@@ -12,7 +12,7 @@ if(Meteor.isClient) {
   Template.dashboard.helpers({
     counter: function() {
       return {
-        postCount: Posts.find({author: author}).count(),
+        postCount: Counts.get('post-count'),
         author: author
       }; 
     }
@@ -21,6 +21,7 @@ if(Meteor.isClient) {
 
 if(Meteor.isServer) {
   Meteor.publish('posts', function(author) {
-    return Posts.find({author: author});
+    var cursor = Posts.find({author: author});
+    Counts.publish(this, 'post-count', cursor, {nonReactive: true});
   });
 }
