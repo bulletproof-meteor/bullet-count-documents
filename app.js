@@ -3,7 +3,11 @@ Comments = new Mongo.Collection('comments');
 
 if(Meteor.isClient) {
   var author = "Author-" + Math.floor(Math.random() * 10);
-  Meteor.subscribe("posts", author);
+  Meteor.subscribe("posts", author, function() {
+    if(location.href.match(/loadtest/)) {
+      location.reload();
+    }
+  });
 
   Template.dashboard.helpers({
     counter: function() {
