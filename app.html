@@ -9,6 +9,8 @@
 </body>
 
 <template name='dashboard'>
-  <h2>No of Posts Available</h2>
-  <div id='postCount'>{{postCount}}</div>
+  {{#with counter}}
+    <h2>No of posts written by: {{author}}</h2>
+    <div id='postCount'>{{postCount}}</div>
+  {{/with}}
 </template>
